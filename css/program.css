@@ -1,0 +1,399 @@
+/* Reset Dasar & Pengaturan Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #131313;
+    background-color: #EDF1D6; /* Latar utama halaman */
+}
+
+nav {
+    background-color: #EDF1D6; /* Warna background navbar */
+    padding: 15px 30px;       /* Padding atas/bawah dan kiri/kanan navbar */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Bayangan halus opsional */
+    position: sticky; /* Membuat navbar tetap di atas saat scroll */
+    top: 0;           /* Posisi navbar di paling atas viewport */
+    left: 0;          /* Memastikan navbar membentang penuh jika diperlukan (lebih relevan untuk position:fixed) */
+    width: 100%;      /* Memastikan navbar membentang penuh */
+    z-index: 1000;    /* Pastikan navbar selalu di atas konten lain */
+    box-sizing: border-box; /* Agar padding dan border tidak menambah total width/height */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Logo ke kiri, menu ke kanan */
+    align-items: center;
+    max-width: 1200px; /* Batasi lebar navbar (opsional) */
+    margin: 0 auto;      /* Tengahkan navbar jika max-width diatur */
+}
+
+/* Styling Logo */
+.logo-container .logo {
+    height: 40px; /* Sesuaikan tinggi logo Anda */
+    display: block; /* Menghindari spasi ekstra di bawah gambar */
+}
+
+/* Styling Menu Navigasi */
+.menu {
+    list-style: none; /* Hilangkan bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Pusatkan item menu secara vertikal */
+}
+
+.menu li {
+    margin-left: 25px; /* Jarak antar item menu */
+    position: relative; /* Diperlukan agar dropdown-content tidak menggeser li lain */
+}
+
+/* Styling default untuk semua link di dalam .menu li */
+.menu li a {
+    text-decoration: none;
+    color: #40513B;      /* Warna teks link standar */
+    padding: 8px 12px;   /* Padding standar link */
+    border-radius: 5px;  /* Sedikit lengkungan untuk konsistensi hover */
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: block; /* Ubah ke block agar padding diterapkan dengan benar dan memenuhi tinggi li jika diperlukan */
+}
+
+/* Efek hover untuk link menu standar (selain tombol Sign In/Up) */
+.menu li:not(.register-mobile) a:hover, /* Hanya untuk link biasa, bukan register-mobile */
+.menu li.dropdown:hover > a { /* Jaga pemicu dropdown tetap ter-highlight */
+    background-color: #E8E3DD; /* Warna background hover */
+}
+
+/* Styling Dropdown */
+/* .dropdown {
+    /* position: relative; sudah ada di .menu li */
+.dropdown {
+    position: relative; /* Diperlukan untuk positioning dropdown-content */
+}
+
+.dropdown-content {
+    display: none; /* Sembunyikan secara default */
+    position: absolute;
+    top: 100%; /* Posisikan di bawah item 'Klasifikasi Hewan' */
+    left: 0;
+    background-color: #EDF1D6; /* Background dropdown */
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
+    z-index: 10; /* Pastikan dropdown di atas elemen lain */
+    border-radius: 0 0 5px 5px; /* Lengkungan di sudut bawah */
+    padding: 5px 0; /* Padding atas/bawah untuk konten dropdown */
+}
+
+.dropdown-content a {
+    color: #40513B;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap; /* Agar teks tidak wrap */
+}
+
+.dropdown-content a:hover {
+    background-color: #E8E3DD;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Tampilkan dropdown saat hover di 'Klasifikasi Hewan' */
+}
+
+/* Styling untuk tombol "Sign In" dan "Sign Up" */
+.menu li.register-mobile a {
+    background-color: #ffaf04; /* Warna background tombol Sign In & Sign Up (sesuai CSS Anda) */
+    color: #40513B;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.menu li.register-mobile a:hover {
+    background-color: #E8E3DD; /* Warna background hover tombol */
+    color: #40513B;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #40513B; /* Hijau Tua untuk judul */
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+/* Tombol CTA Umum */
+.cta-button {
+    display: inline-block;
+    background-color: #ffaf04; /* Oranye */
+    color: #FFFFFF;
+    padding: 14px 32px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #E07B3A; /* Oranye Lebih Gelap */
+    transform: translateY(-2px);
+}
+
+/* Bagian Hero Program */
+.program-hero {
+    display: flex;
+    min-height: 75vh; /* Tinggi minimal hero section */
+    background-color: #609966 ; /* Fallback jika gambar tidak memenuhi */
+}
+
+.hero-left-panel {
+    flex-basis: 55%; /* Lebar panel kiri */
+    background-color: #609966 ; /* Hijau Tua */
+    color: #FFFFFF;
+    padding: 60px 5%; /* Padding responsif */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.program-main-title {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+}
+
+.program-tagline {
+    font-size: 18px;
+    margin-bottom: 30px;
+    max-width: 500px; /* Agar teks tidak terlalu lebar */
+    opacity: 0.9;
+}
+
+.hero-right-panel {
+    flex-basis: 45%; /* Lebar panel kanan */
+    background-color: #FFF0E1; /* Peach muda sebagai fallback atau jika gambar tidak menutupi */
+    overflow: hidden;
+}
+
+.hero-right-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Bagian Tentang Program */
+.program-about-section {
+    background-color: #EDF1D6; /* Latar putih untuk kontras */
+}
+
+.about-content-layout {
+    display: flex;
+    gap: 50px; /* Jarak antara teks dan galeri gambar */
+    align-items: flex-start; /* Agar item tidak meregang jika tingginya beda */
+}
+
+.about-image-gallery {
+    flex-basis: 45%; /* Lebar untuk galeri */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.gallery-img-main {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    height: auto; /* Atau aspect-ratio: 3/4; */
+    object-fit: cover;
+}
+
+.gallery-small-images {
+    display: flex;
+    gap: 15px;
+}
+
+.gallery-img-small {
+    flex: 1; /* Bagi ruang sama rata */
+    width: calc(50% - 7.5px); /* Perhitungan agar pas dengan gap */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    aspect-ratio: 4/3; /* Membuat gambar kecil memiliki rasio 4:3 */
+    object-fit: cover;
+}
+
+.about-text-details {
+    flex-basis: 55%; /* Lebar untuk teks detail */
+}
+
+.about-text-details h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.about-text-details p {
+    margin-bottom: 20px;
+    color: #131313;
+}
+
+.about-text-details h3 {
+    font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.about-text-details ul {
+    list-style-position: inside;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.about-text-details ul li {
+    margin-bottom: 10px;
+    color: #131313;
+}
+
+/* Bagian Ajakan Bergabung */
+.program-get-involved {
+    background-color: #609966; /* Hijau Tua untuk kontras CTA */
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.program-get-involved h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+}
+
+.program-get-involved p {
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto 35px auto; /* Tengahkan dan beri jarak bawah */
+    opacity: 0.9;
+}
+
+/* --- Media Queries untuk Responsivitas --- */
+@media (max-width: 992px) {
+    .navbar {
+        flex-direction: column; /* Atau implementasi hamburger menu */
+        align-items: flex-start;
+    }
+    .menu {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+    }
+    .menu li {
+        margin-left: 0;
+        width: 100%;
+        text-align: center; /* Atau kiri, sesuai preferensi */
+    }
+    .menu li a {
+        padding: 10px;
+        border-bottom: 1px solid rgba(64, 81, 59, 0.1); /* Garis pemisah antar menu item */
+    }
+    .menu li:last-child a {
+        border-bottom: none;
+    }
+    .menu li.register-mobile a { /* Tombol tetap terlihat berbeda */
+        margin: 5px 0;
+    }
+    .dropdown-content { /* Penyesuaian dropdown di mobile */
+        position: static; /* Tidak lagi absolute */
+        box-shadow: none;
+        width: 100%;
+        background-color: rgba(237, 241, 214, 0.5); /* Latar sedikit berbeda */
+    }
+    .program-main-title {
+        font-size: 36px;
+    }
+    .program-tagline,
+    .program-get-involved p {
+        font-size: 16px;
+    }
+
+    .about-content-layout {
+        flex-direction: column-reverse; /* Teks di atas, gambar di bawah di tablet */
+    }
+    .about-image-gallery,
+    .about-text-details {
+        flex-basis: 100%; /* Ambil lebar penuh */
+    }
+    .about-image-gallery {
+        margin-bottom: 30px; /* Jarak jika gambar di atas teks */
+    }
+}
+
+@media (max-width: 768px) {
+    .program-hero {
+        flex-direction: column; /* Tumpuk panel hero */
+        min-height: auto;
+    }
+    .hero-left-panel,
+    .hero-right-panel {
+        flex-basis: auto; /* Reset basis */
+    }
+    .hero-left-panel {
+        padding: 40px 20px;
+        text-align: center; /* Tengahkan teks di mobile */
+        align-items: center;
+    }
+    .hero-right-panel img {
+        max-height: 400px; /* Batasi tinggi gambar hero di mobile */
+    }
+    .program-main-title {
+        font-size: 30px;
+    }
+
+    .container {
+        padding: 60px 0;
+    }
+    .about-text-details h2,
+    .program-get-involved h2 {
+        font-size: 28px;
+    }
+    .about-text-details h3 {
+        font-size: 20px;
+    }
+
+    .cta-button {
+        padding: 12px 28px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .program-main-title {
+        font-size: 26px;
+    }
+    .program-tagline {
+        font-size: 15px;
+    }
+    .gallery-small-images {
+        flex-direction: column; /* Tumpuk gambar kecil di mobile */
+    }
+    .gallery-img-small {
+        width: 100%;
+        aspect-ratio: 16/9; /* Ubah rasio jika perlu agar tidak terlalu tinggi */
+    }
+    .about-text-details h2,
+    .program-get-involved h2 {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up C'GROOvY</title>
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+<body>
+    <div class="form-container">
+      <h2>Create an Account</h2>
+      <form id="registrationForm">
+        <!-- Username -->
+
+        <div>
+          <label for="Name" class="mb-2"> Name:</label>
+          <!-- ini gak wajib, cmn biar tau aja ini buat apa -->
+          <input
+            type="text"
+            name=""
+            id="name"
+            placeholder="Enter Your Name"
+            class="mb-2"
+          />
+          <!-- iname fungsinya sama kayak label -->
+          <div id="nameError" class="error"></div>
+        </div>
+
+        <!-- Email -->
+        <label for="Email"> Email:</label>
+        <!-- ini gak wajib, cmn biar tau aja ini buat apa -->
+        <input type="text" name="" id="email" class="mb-2" placeholder="Enter Your Email" />
+        <!-- iname fungsinya sama kayak label -->
+        <div id="emailError" class="error"></div>
+
+        <!-- Confirm Age -->
+        <label for="Age"> Age:</label>
+        <!-- ini gak wajib, cmn biar tau aja ini buat apa -->
+        <input
+          type="number"
+          name=""
+          id="age"
+          placeholder="Enter Age"
+          class="mb-2"
+        />
+        <!-- iname fungsinya sama kayak label -->
+        <div id="ageError" class="error"></div>
+
+        <!-- Gender -->
+        <label for="Gender"> Gender:</label>
+        <div class="gender-options">
+          <div class="gender-option">
+            <input type="radio" name="gender" id="genderMale" value="Male" />
+            <label for="genderMale">Male</label>
+          </div>
+          <div class="gender-option">
+            <input type="radio" name="gender" id="genderFemale" value="Female" />
+            <label for="genderFemale">Female</label>
+          </div>
+        </div>
+
+        <div id="genderError" class="error" style="display:none; color:red;"></div>
+        <p class="sign">Do you have an account? <a href="../html/signin.html">Sign In</a></p>
+        <!-- Submit Button -->
+        <button type="submit">Join Now</button>
+      </form>
+    </div>
+
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script src="../js/join-now.js"></script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+/* Pengaturan Dasar & Font */
+body {
+    font-family: Arial, Helvetica, sans-serif; /* Menggunakan Poppins seperti di gambar, atau ganti sesuai preferensi */
+    background-color: #EDF1D6; /* Latar belakang halaman sedikit abu-abu */
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #EDF1D6; /* Warna background navbar */
+    padding: 15px 30px;       /* Padding atas/bawah dan kiri/kanan navbar */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Bayangan halus opsional */
+    position: sticky; /* Membuat navbar tetap di atas saat scroll */
+    top: 0;           /* Posisi navbar di paling atas viewport */
+    left: 0;          /* Memastikan navbar membentang penuh jika diperlukan (lebih relevan untuk position:fixed) */
+    width: 100%;      /* Memastikan navbar membentang penuh */
+    z-index: 1000;    /* Pastikan navbar selalu di atas konten lain */
+    box-sizing: border-box; /* Agar padding dan border tidak menambah total width/height */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Logo ke kiri, menu ke kanan */
+    align-items: center;
+    max-width: 1200px; /* Batasi lebar navbar (opsional) */
+    margin: 0 auto;      /* Tengahkan navbar jika max-width diatur */
+}
+
+/* Styling Logo */
+.logo-container .logo {
+    height: 40px; /* Sesuaikan tinggi logo Anda */
+    display: block; /* Menghindari spasi ekstra di bawah gambar */
+}
+
+/* Styling Menu Navigasi */
+.menu {
+    list-style: none; /* Hilangkan bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Pusatkan item menu secara vertikal */
+}
+
+.menu li {
+    margin-left: 25px; /* Jarak antar item menu */
+    position: relative; /* Diperlukan agar dropdown-content tidak menggeser li lain */
+}
+
+/* Styling default untuk semua link di dalam .menu li */
+.menu li a {
+    text-decoration: none;
+    color: #40513B;      /* Warna teks link standar */
+    padding: 8px 12px;   /* Padding standar link */
+    border-radius: 5px;  /* Sedikit lengkungan untuk konsistensi hover */
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: block; /* Ubah ke block agar padding diterapkan dengan benar dan memenuhi tinggi li jika diperlukan */
+}
+
+/* Efek hover untuk link menu standar (selain tombol Sign In/Up) */
+.menu li:not(.register-mobile) a:hover, /* Hanya untuk link biasa, bukan register-mobile */
+.menu li.dropdown:hover > a { /* Jaga pemicu dropdown tetap ter-highlight */
+    background-color: #E8E3DD; /* Warna background hover */
+}
+
+/* Styling Dropdown */
+/* .dropdown {
+    /* position: relative; sudah ada di .menu li */
+.dropdown {
+    position: relative; /* Diperlukan untuk positioning dropdown-content */
+}
+
+.dropdown-content {
+    display: none; /* Sembunyikan secara default */
+    position: absolute;
+    top: 100%; /* Posisikan di bawah item 'Klasifikasi Hewan' */
+    left: 0;
+    background-color: #EDF1D6; /* Background dropdown */
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
+    z-index: 10; /* Pastikan dropdown di atas elemen lain */
+    border-radius: 0 0 5px 5px; /* Lengkungan di sudut bawah */
+    padding: 5px 0; /* Padding atas/bawah untuk konten dropdown */
+}
+
+.dropdown-content a {
+    color: #40513B;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap; /* Agar teks tidak wrap */
+}
+
+.dropdown-content a:hover {
+    background-color: #E8E3DD;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Tampilkan dropdown saat hover di 'Klasifikasi Hewan' */
+}
+
+/* Styling untuk tombol "Sign In" dan "Sign Up" */
+.menu li.register-mobile a {
+    background-color: #ffaf04; /* Warna background tombol Sign In & Sign Up (sesuai CSS Anda) */
+    color: #40513B;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.menu li.register-mobile a:hover {
+    background-color: #E8E3DD; /* Warna background hover tombol */
+    color: #40513B;
+}
+
+.team-section {
+    padding: 50px 20px; /* Padding untuk seluruh bagian tim */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #40513B; /* Warna judul bagian */
+    margin-bottom: 40px;
+}
+
+/* Kontainer untuk semua kartu pengguna */
+.animal-cards-container {
+    display: grid;
+    /* Buat kolom responsif, minimal 240px, maksimal 1fr (membagi ruang sama rata) */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px; /* Jarak antar kartu */
+    max-width: 1000px; /* Lebar maksimum kontainer kartu */
+    margin: 0 auto; /* Tengahkan kontainer kartu */
+}
+
+/* Styling untuk setiap kartu pengguna */
+.animal-card {
+    background-color: #ffffff; /* Latar belakang kartu putih */
+    border: 1px solid #e7eaf3; /* Border tipis seperti di gambar */
+    border-radius: 10px;       /* Sudut kartu melengkung */
+    padding: 25px 20px;        /* Padding dalam kartu */
+    text-align: center;        /* Konten di dalam kartu rata tengah */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Bayangan halus */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.animal-card:hover {
+    transform: translateY(-5px); /* Sedikit terangkat saat di-hover */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Pembungkus foto pengguna untuk rasio aspek 3:4 */
+/* Pembungkus foto hewan untuk rasio aspek 4:3 dan lebar penuh */
+.animal-photo-wrapper {
+    width: 100%; /* FOTO AKAN MENGAMBIL LEBAR PENUH DARI AREA KONTEN KARTU */
+    aspect-ratio: 4/3; /* Mempertahankan rasio aspek 4:3 (sesuai CSS Anda saat ini) */
+    overflow: hidden;    /* Sembunyikan bagian gambar yang berlebih */
+    margin-bottom: 20px; /* Jarak antara foto dan info hewan */
+    border-radius: 8px;  /* Sudut melengkung untuk bingkai foto */
+    background-color: #f0f0f0; /* Warna fallback jika gambar tidak termuat */
+}
+
+.animal-photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Pastikan gambar menutupi area tanpa merusak rasio aspeknya */
+    display: block;
+}
+
+/* Info Pengguna (Nama, Peran, Link Profil) */
+.animal-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.animal-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #343a40; /* Warna nama pengguna */
+    margin-bottom: 5px;
+}
+
+.animal-year {
+    font-size: 14px;
+    color: #40513B; /* Warna peran pengguna (abu-abu) */
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.animal-origin {
+    font-size: 14px;
+    color: #40513B; /* Warna peran pengguna (abu-abu) */
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.animal-status {
+    font-size: 14px;
+    color: #40513B; /* Warna peran pengguna (abu-abu) */
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        flex-direction: column; /* Atau implementasi hamburger menu */
+        align-items: flex-start;
+    }
+    .menu {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+    }
+    .menu li {
+        margin-left: 0;
+        width: 100%;
+        text-align: center; /* Atau kiri, sesuai preferensi */
+    }
+    .menu li a {
+        padding: 10px;
+        border-bottom: 1px solid rgba(64, 81, 59, 0.1); /* Garis pemisah antar menu item */
+    }
+    .menu li:last-child a {
+        border-bottom: none;
+    }
+    .menu li.register-mobile a { /* Tombol tetap terlihat berbeda */
+        margin: 5px 0;
+    }
+    .dropdown-content { /* Penyesuaian dropdown di mobile */
+        position: static; /* Tidak lagi absolute */
+        box-shadow: none;
+        width: 100%;
+        background-color: rgba(237, 241, 214, 0.5); /* Latar sedikit berbeda */
+    }
+}
+
+
+/* Untuk Bagian Program dan Berita (Kartu) */
+@media (max-width: 768px) {
+    .programs-section .title-container h2,
+    .popular-news-section .title-container h2 {
+        font-size: 28px; /* Ukuran judul lebih kecil di tablet */
+    }
+
+    .program-cards-container,
+    .news-cards-wrapper {
+        /* auto-fit akan menangani ini, tapi jika ingin 1 kolom lebih awal: */
+        grid-template-columns: 1fr; /* Semua kartu menjadi 1 kolom */
+    }
+
+    .program-card,
+    .popular-news-section .content-card {
+        width: 100%; /* Kartu mengambil lebar penuh di 1 kolom */
+        max-width: 450px; /* Batas maksimum agar tidak terlalu lebar di tablet portrait */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Penyesuaian Responsif */
+@media (max-width: 576px) {
+    .user-cards-container {
+        /* Pada layar sangat kecil, pastikan minmax tidak membuat kartu terlalu kecil atau memaksa 2 kolom */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    .user-card {
+        padding: 20px 15px;
+    }
+    .section-title {
+        font-size: 24px;
+    }
+    .user-name {
+        font-size: 17px;
+    }
+    .user-role, .user-profile-link {
+        font-size: 13px;
+    }
+    .user-photo-wrapper {
+        width: 100px; /* Lebar foto bisa disesuaikan lagi untuk mobile */
+    }
+}
